@@ -1,0 +1,92 @@
+<div ng-controller=staniceCtrl>
+	<h1>Stanice</h1>
+							
+		<form>
+
+			<div class="form-group">
+				<label for="vreme">Vreme</label>
+				<input id="vreme" class="form-control" ng-model="newStanica.vreme"/>
+			</div>
+			<div class="form-group">
+				<label for="adresa">Adresa</label>
+				<input id="adresa" class="form-control" ng-model="newStanica.adresa"/>
+			</div>
+			<div class="form-group">
+				<label for="redniBroj">Redni broj</label>
+				<input id="redniBroj" class="form-control" ng-model="newStanica.redniBroj"/>
+			</div>
+<!-- 			<div class="form-group"> -->
+<!-- 				<label for="destinacija">Destinacija</label> -->
+<!-- 				<input id="destinacija" class="form-control" ng-model="newLinija.destinacija"/> -->
+<!-- 			</div> -->
+		
+			<div class="form-group">
+				<label for="voznja">Voznja</label>
+				<select id="voznja" class="form-control" ng-model="newStanica.voznjaId">
+					<option ng-repeat="voznja in voznje" value="{{voznja.id}}">{{voznja.brojVoznje}}</option>
+				</select>
+			</div>
+							
+			<button class="btn btn-primary" ng-click="doAdd()">Dodaj</button>
+			
+		</form>
+		
+		
+		<form>
+			
+			<div class="form-group">
+				<label for="adresa">Adresa</label>
+				<input id="adresa" class="form-control" ng-model="searchParams.adresa"/>
+			</div>
+		
+			<div class="form-group">
+				<label for="voznja">Broj voznje</label>
+				<select id="voznja" class="form-control" ng-model="searchParams.voznjaId">
+					<option ng-repeat="voznja in voznje" value="{{voznja.id}}">{{voznja.brojVoznje}}</option>
+				</select>
+			</div>
+			
+<!-- 			<div class="form-group"> -->
+<!-- 				<label for="cenaKarte">Maksimalna cena karte</label> -->
+<!-- 				<input id="cenaKarte" class="form-control" ng-model="searchParams.cenaKarte"/> -->
+<!-- 			</div> -->
+							
+			<button class="btn btn-primary" allign = "left" ng-click="doSearch()">Pretraži</button>
+			<button class="btn btn-secondary" allign = "right" ng-click="doClearSearch()">Orbisi pretragu</button>
+			
+		</form>
+		
+		
+		<div class="btn-group float-right">
+			<button ng-disabled="pageNum == 0" ng-click="changePage(-1)" class="btn btn-info">Prethodna</button>
+			<button ng-disabled="pageNum >= totalPages - 1" ng-click="changePage(1)" class="btn btn-info">Sledeća</button>
+		</div>
+		
+		<br>
+	
+		<table class="table table-bordered table-striped">
+			<thead class="thead-dark">
+				<tr>
+					<th>Broj voznje</th>
+					<th>Vreme</th>
+					<th>Adresa</th>
+					<th>Redni broj</th>
+					<th>Akcije</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="stanica in stanice">
+					<td>{{stanica.brojVoznje}}</td>
+					<td>{{stanica.vreme}}</td>
+					<td>{{stanica.adresa}}</td>
+					<td>{{stanica.redniBroj}}</td>
+					<td>
+						<button class="btn btn-primary" ng-click="goToPotvrdi(stanica.id)">Potvrdi</button>
+						<button class="btn btn-warning" ng-click="goToEdit(stanica.id)">Izmeni</button>
+						<button class="btn btn-danger" ng-click="doDelete(stanica.id)">Obriši</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+</div>

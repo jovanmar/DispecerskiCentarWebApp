@@ -1,0 +1,40 @@
+<div ng-controller="editStanicaCtrl">
+	<h1>Izmena stanice</h1>
+	
+	<div class="row">
+				
+		<div class="col-12 col-lg-5">
+		
+			<form>
+
+				<div class="form-group">
+					<label for="vreme">Vreme</label>
+					<input id=""vreme"" class="form-control" ng-model="stanica.vreme"/>
+				</div>
+				<div class="form-group">
+					<label for="adresa">Adresa</label>
+					<input id="adresa" class="form-control" ng-model="stanica.adresa"/>
+				</div>
+<!-- 				<div class="form-group"> -->
+<!-- 					<label for="vremePolaska">Vreme polaska</label> -->
+<!-- 					<input id="vremePolaska" class="form-control" ng-model="linija.vremePolaska"/> -->
+<!-- 				</div> -->
+<!-- 				<div class="form-group"> -->
+<!-- 					<label for="destinacija">Destinacija</label> -->
+<!-- 					<input id="destinacija" class="form-control" ng-model="linija.destinacija"/> -->
+<!-- 				</div> -->
+			
+				<div class="form-group">
+					<label for="voznja">Voznja</label>
+					<select id="voznja" class="form-control" ng-model="stanica.voznjaId">
+						<option ng-repeat="voznja in voznje" value="{{voznja.id}}">{{voznja.brojVoznje}}</option>
+					</select>
+				</div>
+								
+				<button class="btn btn-primary" ng-click="doEdit()">Izmeni</button>
+				
+			</form>
+		
+		</div>
+	</div>
+</div>

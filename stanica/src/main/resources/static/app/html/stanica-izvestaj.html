@@ -1,0 +1,41 @@
+<div ng-controller="izvestajCtrl">
+	<h1>Izvestaj za stanicu</h1>
+	
+	<div class="row">
+				
+		<div class="col-12 col-lg-5">
+		<h2>Stanica:</h2>
+		</br>
+			<form>
+
+				<div class="form-group">
+					<label for="vreme">Vreme</label>
+					<input id=""vreme"" class="form-control" disabled ng-model="stanica.vreme"/>
+				</div>
+				<div class="form-group">
+					<label for="adresa">Adresa</label>
+					<input id="adresa" class="form-control" disabled ng-model="stanica.adresa"/>
+				</div>
+				<div class="form-group">
+					<label for="brojVoznje">Broj Voznje</label>
+					<input id="brojVoznje" class="form-control" disabled ng-model="stanica.brojVoznje"/>
+				</div>
+				<div class="form-group">
+					<label for="poruka">Poruka</label>
+					<input id="poruka" class="form-control" ng-model="newIzvestaj.poruka"/>
+				</div>
+			
+<!-- 				<div class="form-group"> -->
+<!-- 					<label for="voznja">Prevoznik</label> -->
+<!-- 					<select id="voznja" class="form-control" ng-model="stanica.voznjaId"> -->
+<!-- 						<option ng-repeat="voznja in voznje" value="{{voznja.id}}">{{voznja.brojVoznje}}</option> -->
+<!-- 					</select> -->
+<!-- 				</div> -->
+								
+				<button class="btn btn-danger" ng-click="doPotvrdi()">Potvrdi</button>
+				
+			</form>
+		
+		</div>
+	</div>
+</div>
