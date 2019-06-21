@@ -1,6 +1,5 @@
 package jwd.stanica.service.impl;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -21,12 +20,8 @@ public class JpaStanicaService implements StanicaService {
 		return stanicaRepository.findOne(id);
 	}
 
-
 	@Override
 	public Stanica save(Stanica stanica) {
-		if (stanica.getRedniBroj() == 1) {
-			stanica.setTrenutna(true);
-		}
 		return stanicaRepository.save(stanica);
 	}
 
@@ -41,17 +36,17 @@ public class JpaStanicaService implements StanicaService {
 
 	@Override
 	public Page<Stanica> search(Long voznjaId, String adresa, int pageNum) {
-		
-		if(adresa!=null ) {
+
+		if (adresa != null) {
 			adresa = '%' + adresa + '%';
 		}
-		
-		return stanicaRepository.search(voznjaId, adresa , new PageRequest(pageNum, 5));
+
+		return stanicaRepository.search(voznjaId, adresa, new PageRequest(pageNum, 5));
 	}
 
 	@Override
 	public Page<Stanica> findAll(int pageNum) {
 		return stanicaRepository.findAll(new PageRequest(pageNum, 5));
 	}
-		
+
 }

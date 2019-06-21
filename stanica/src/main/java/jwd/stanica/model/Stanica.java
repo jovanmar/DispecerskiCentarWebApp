@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.CascadeType;
 
@@ -37,7 +38,12 @@ public class Stanica{
 	@OneToMany(mappedBy="stanica", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
 	private List<Izvestaj> izvestaji = new ArrayList<>();
 	
-	
+	@PrePersist
+	private void setTrenutna() {
+		if (this.getRedniBroj() == 1) {
+			this.setTrenutna(true);
+		}
+	}
 
 	public Long getId() {
 		return id;

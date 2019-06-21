@@ -50,12 +50,16 @@
 <!-- 				<label for="cenaKarte">Maksimalna cena karte</label> -->
 <!-- 				<input id="cenaKarte" class="form-control" ng-model="searchParams.cenaKarte"/> -->
 <!-- 			</div> -->
-							
-			<button class="btn btn-primary" allign = "left" ng-click="doSearch()">Pretraži</button>
-			<button class="btn btn-secondary" allign = "right" ng-click="doClearSearch()">Orbisi pretragu</button>
+					
+			<button class="btn btn-primary" style="float: left;" ng-click="doSearch()">Pretraži</button>
+			<button class="btn btn-danger" style="float: right;" ng-click="doClearSearch()">Orbisi pretragu</button>
 			
 		</form>
 		
+<!--ocistimo style float iz predostroznosti da se ne bi pomesao sa narednim -->
+		<div style="clear: both;"></div>
+		</br>
+		</br>
 		
 		<div class="btn-group float-right">
 			<button ng-disabled="pageNum == 0" ng-click="changePage(-1)" class="btn btn-info">Prethodna</button>
@@ -81,7 +85,7 @@
 					<td>{{stanica.adresa}}</td>
 					<td>{{stanica.redniBroj}}</td>
 					<td>
-						<button class="btn btn-primary" ng-click="goToPotvrdi(stanica.id)">Potvrdi</button>
+						<button ng-disabled ="!stanica.trenutna" class="btn btn-secondary"  id ="potvrdiBtn" ng-click="goToPotvrdi(stanica.id)"  >Potvrdi</button>
 						<button class="btn btn-warning" ng-click="goToEdit(stanica.id)">Izmeni</button>
 						<button class="btn btn-danger" ng-click="doDelete(stanica.id)">Obriši</button>
 					</td>

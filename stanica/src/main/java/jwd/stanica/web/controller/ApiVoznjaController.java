@@ -7,9 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,7 +17,6 @@ import jwd.stanica.model.Stanica;
 import jwd.stanica.model.Voznja;
 import jwd.stanica.service.VoznjaService;
 import jwd.stanica.support.StanicaToStanicaDTO;
-import jwd.stanica.support.VoznjaDTOToVoznja;
 import jwd.stanica.support.VoznjaToVoznjaDTO;
 import jwd.stanica.web.dto.StanicaDTO;
 import jwd.stanica.web.dto.VoznjaDTO;
@@ -36,8 +33,8 @@ public class ApiVoznjaController {
 	@Autowired
 	private StanicaToStanicaDTO toStanicaDto;
 //	
-	@Autowired
-	private VoznjaDTOToVoznja toLinija;
+//	@Autowired
+//	private VoznjaDTOToVoznja toVoznja;
 	
 	@RequestMapping(method=RequestMethod.GET)
 	ResponseEntity<List<VoznjaDTO>> getVoznje(

@@ -39,6 +39,7 @@ public class StanicaDTOToStanica implements Converter<StanicaDTO, Stanica> {
 			stanica.setTrenutna(stanicaDTO.isTrenutna());
 			stanica.setVoznja(voznja);
 			stanica.setVreme(stanicaDTO.getVreme());
+			stanica.setTrenutna(stanicaDTO.isTrenutna());
 			
 			
 			return stanica;

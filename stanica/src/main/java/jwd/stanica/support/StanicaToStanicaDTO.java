@@ -26,6 +26,8 @@ public class StanicaToStanicaDTO
 		dto.setVreme(stanica.getVreme());
 		dto.setAdresa(stanica.getAdresa());
 		dto.setRedniBroj(stanica.getRedniBroj());
+		dto.setTrenutna(stanica.isTrenutna());	
+		
 		dto.setVoznjaId(stanica.getVoznja().getId());
 		dto.setBrojVoznje(stanica.getVoznja().getBrojVoznje());
 		

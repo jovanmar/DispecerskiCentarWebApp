@@ -7,6 +7,10 @@ stanicaApp.controller("homeCtrl", function($scope){
 
 stanicaApp.controller("staniceCtrl", function($scope, $http, $location){
 	
+	
+	var voznjaUrl = "/api/voznje";
+	var staniceUrl = "/api/stanice";
+	
 	$scope.voznje = [];
 	$scope.stanice = [];
 
@@ -14,20 +18,17 @@ stanicaApp.controller("staniceCtrl", function($scope, $http, $location){
 	$scope.newStanica.vreme = "";
 	$scope.newStanica.adresa = "";
 	$scope.newStanica.redniBroj = "";
-//	$scope.newStanica.destinacija = "";
 
 	$scope.newStanica.voznjaId = "";
 	
 	$scope.searchParams = {};
 	$scope.searchParams.voznjaId = "";
 	$scope.searchParams.adresa = "";
-//	$scope.searchParams.cenaKarte = "";
 	
 	$scope.pageNum = 0;
 	$scope.totalPages = 1
 	
-	var voznjaUrl = "/api/voznje";
-	var staniceUrl = "/api/stanice";
+	
 	
 	var getStanice = function(){
 		
@@ -123,11 +124,20 @@ stanicaApp.controller("staniceCtrl", function($scope, $http, $location){
 		getStanice();
 	}
 	
+	
 	$scope.goToPotvrdi = function(id){
 		$location.path("/stanice/izvestaj/" + id);
 	}
 	
-
+//	$scope.disableBtn = function (boolean) {
+//		if(boolean == true){
+//			document.getElementById("potvrdiBtn").disabled = false;
+//		}else{
+//			document.getElementById("potvrdiBtn").disabled = true;
+//		}
+//		
+//	}
+		
 	
 });
 
@@ -171,8 +181,9 @@ stanicaApp.controller("editStanicaCtrl", function($scope, $http, $routeParams, $
 			}
 		);
 	}
-	//Ako bismo želeli da radimo kaskadiranje radi omogućavanja ng-selected odabira prevoznika,
-	//onda bismo ovo morali da prebacimo u success callback pod getPrevoznici(getVoznje u ovom slicaju). Tu je izostavljen
+	
+	//Ako bismo želeli da radimo kaskadiranje radi omogućavanja ng-selected odabira voznji,
+	//onda bismo ovo morali da prebacimo u success callback pod getVoznje. Tu je izostavljen
 	//taj mehanizam radi jednostavnosti.
 	
 	getStanica();
